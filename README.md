@@ -6,14 +6,14 @@
 
 ### Contributors
 
-- [Krish Agrawal]
-- [Rupal Shah]
-- [Yatharth Gupta]
-- [Vishnu Jaddipal]
-- [Devanshi Chhatbar]
-- [Prachi Patil]
-- [Srujan]
-- [Soham Pandit]
+- Krish Agrawal
+- Rupal Shah
+- Yatharth Gupta
+- Vishnu Jaddipal
+- Devanshi Chhatbar
+- Prachi Patil
+- Srujan
+- Soham Pandit
 
 ## Overview
 
