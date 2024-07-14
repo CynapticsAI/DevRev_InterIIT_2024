@@ -1,0 +1,351 @@
+[
+  {
+    "query": "Summarize work items similar to don:core:dvrv-us-1:devo/0:issue/1",
+    "answer": [
+      {
+        "tool_name": "get_similar_work_items",
+        "arguments": [
+          {
+            "argument_name": "work_id",
+            "argument_value": "don:core:dvrv-us-1:devo/0:issue/1"
+          }
+        ]
+      },
+      {
+        "tool_name": "summarize_objects",
+        "arguments": [
+          {
+            "argument_name": "objects",
+            "argument_value": "$$PREV[0]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "query": "What is the meaning of life?",
+    "answer": []
+  },
+  {
+    "query": "Prioritize my P0 issues and add them to the current sprint",
+    "answer": [
+      {
+        "tool_name": "who_am_i",
+        "arguments": []
+      },
+      {
+        "tool_name": "works_list",
+        "arguments": [
+          {
+            "argument_name": "issue.priority",
+            "argument_value": ["p0"]
+          },
+          {
+            "argument_name": "owned_by",
+            "argument_value": ["$$PREV[0]"]
+          },
+          {
+            "argument_name": "type",
+            "argument_value": ["issue"]
+          }
+        ]
+      },
+      {
+        "tool_name": "prioritize_objects",
+        "arguments": [
+          {
+            "argument_name": "objects",
+            "argument_value": "$$PREV[1]"
+          }
+        ]
+      },
+      {
+        "tool_name": "get_sprint_id",
+        "arguments": []
+      },
+      {
+        "tool_name": "add_work_items_to_sprint",
+        "arguments": [
+          {
+            "argument_name": "work_ids",
+            "argument_value": "$$PREV[2]"
+          },
+          {
+            "argument_name": "sprint_id",
+            "argument_value": "$$PREV[3]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "query": "Summarize high severity tickets from the customer UltimateCustomer",
+    "answer": [
+      {
+        "tool_name": "search_object_by_name",
+        "arguments": [
+          {
+            "argument_name": "query",
+            "argument_value": "UltimateCustomer"
+          }
+        ]
+      },
+      {
+        "tool_name": "works_list",
+        "arguments": [
+          {
+            "argument_name": "ticket.rev_org",
+            "argument_value": ["$$PREV[0]"]
+          },
+          {
+            "argument_name": "ticket.severity",
+            "argument_value": ["high"]
+          },
+          {
+            "argument_name": "type",
+            "argument_value": ["ticket"]
+          }
+        ]
+      },
+      {
+        "tool_name": "summarize_objects",
+        "arguments": [
+          {
+            "argument_name": "objects",
+            "argument_value": "$$PREV[1]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "query": "What are my all issues in the triage stage under part FEAT-123? Summarize them.",
+    "answer": [
+      {
+        "tool_name": "who_am_i",
+        "arguments": []
+      },
+      {
+        "tool_name": "works_list",
+        "arguments": [
+          {
+            "argument_name": "stage.name",
+            "argument_value": ["triage"]
+          },
+          {
+            "argument_name": "applies_to_part",
+            "argument_value": ["FEAT-123"]
+          },
+          {
+            "argument_name": "owned_by",
+            "argument_value": ["$$PREV[0]"]
+          },
+          {
+            "argument_name": "type",
+            "argument_value": ["issue"]
+          }
+        ]
+      },
+      {
+        "tool_name": "summarize_objects",
+        "arguments": [
+          {
+            "argument_name": "objects",
+            "argument_value": "$$PREV[1]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "query": "List all high severity tickets coming in from slack from customer Cust123 and generate a summary of them.",
+    "answer": [
+      {
+        "tool_name": "search_object_by_name",
+        "arguments": [
+          {
+            "argument_name": "query",
+            "argument_value": "Cust123"
+          }
+        ]
+      },
+      {
+        "tool_name": "works_list",
+        "arguments": [
+          {
+            "argument_name": "ticket.rev_org",
+            "argument_value": ["$$PREV[0]"]
+          },
+          {
+            "argument_name": "ticket.severity",
+            "argument_value": ["high"]
+          },
+          {
+            "argument_name": "ticket.source_channel",
+            "argument_value": ["slack"]
+          },
+          {
+            "argument_name": "type",
+            "argument_value": ["ticket"]
+          }
+        ]
+      },
+      {
+        "tool_name": "summarize_objects",
+        "arguments": [
+          {
+            "argument_name": "objects",
+            "argument_value": "$$PREV[1]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "query": "Given a customer meeting transcript T, create action items and add them to my current sprint",
+    "answer": [
+      {
+        "tool_name": "create_actionable_tasks_from_text",
+        "arguments": [
+          {
+            "argument_name": "text",
+            "argument_value": "T"
+          }
+        ]
+      },
+      {
+        "tool_name": "get_sprint_id",
+        "arguments": []
+      },
+      {
+        "tool_name": "add_work_items_to_sprint",
+        "arguments": [
+          {
+            "argument_name": "work_ids",
+            "argument_value": "$$PREV[0]"
+          },
+          {
+            "argument_name": "sprint_id",
+            "argument_value": "$$PREV[1]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "query": "Get all work items similar to TKT-123, summarize them, create issues from that summary, and prioritize them",
+    "answer": [
+      {
+        "tool_name": "get_similar_work_items",
+        "arguments": [
+          {
+            "argument_name": "work_id",
+            "argument_value": "TKT-123"
+          }
+        ]
+      },
+      {
+        "tool_name": "summarize_objects",
+        "arguments": [
+          {
+            "argument_name": "objects",
+            "argument_value": "$$PREV[0]"
+          }
+        ]
+      },
+      {
+        "tool_name": "create_actionable_tasks_from_text",
+        "arguments": [
+          {
+            "argument_name": "text",
+            "argument_value": "$$PREV[1]"
+          }
+        ]
+      },
+      {
+        "tool_name": "prioritize_objects",
+        "arguments": [
+          {
+            "argument_name": "objects",
+            "argument_value": "$$PREV[2]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "query": "Check if any 'blocker' tickets are in the 'triage' stage and if so, return their count",
+    "answer": [
+      {
+        "tool_name": "works_list",
+        "arguments": [
+          {
+            "argument_name": "ticket.severity",
+            "argument_value": [
+              "blocker"
+            ]
+          },
+          {
+            "argument_name": "stage.name",
+            "argument_value": [
+              "triage"
+            ]
+          },
+          {
+            "argument_name": "type",
+            "argument_value": [
+              "ticket"
+            ]
+          }
+        ]
+      },
+      {
+        "tool_name": "lambda",
+        "arguments": [
+          {
+            "argument_name": "expression",
+            "argument_value": "lambda $$PREV[0]: len($$PREV[0]) if $$PREV[0] else 0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "query": "Get the total number of issues that need a response and are of priority 'p1' or 'p2'",
+    "answer": [
+      {
+        "tool_name": "works_list",
+        "arguments": [
+          {
+            "argument_name": "issue.priority",
+            "argument_value": [
+              "p1",
+              "p2"
+            ]
+          },
+          {
+            "argument_name": "ticket.needs_response",
+            "argument_value": [
+              true
+            ]
+          },
+          {
+            "argument_name": "type",
+            "argument_value": [
+              "issue"
+            ]
+          }
+        ]
+      },
+      {
+        "tool_name": "lambda",
+        "arguments": [
+          {
+            "argument_name": "expression",
+            "argument_value": "lambda $$PREV[0]: len($$PREV[0])"
+          }
+        ]
+      }
+    ]
+  }
+]

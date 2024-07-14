@@ -1,0 +1,207 @@
+{
+  "tools": [
+    {
+      "tool_description": "Returns a list of work items matching the request.",
+      "tool_name": "works_list",
+      "return_type": "array of objects",
+      "argument_list": [
+        {
+          "argument_name": "applies_to_part",
+          "argument_description": "Filters for work belonging to any of the provided parts",
+          "argument_type": "array of strings",
+          "example": [
+            ["FEAT-123"],
+            ["ENH-123", "PROD-123", "CAPL-123", "CAPL-359"],
+            ["HGH-262", "FEAT-007"]
+          ]
+        },
+        {
+          "argument_name": "created_by",
+          "argument_description": "Filters for work created by any of these users",
+          "argument_type": "array of strings",
+          "example": [["DEVU-123"], ["PRO-233", "CRE-1233"]]
+        },
+        {
+          "argument_name": "issue.priority",
+          "argument_description": "Filters for issues with any of the provided priorities. Allowed values: p0, p1, p2, p3.",
+          "allowed_values": ["p0", "p1", "p2", "p3"],
+          "argument_type": "array of strings",
+          "example": [["p0"], ["p0", "p3"], ["p0", "p1", "p2", "p3"]]
+        },
+        {
+          "argument_name": "issue.rev_orgs",
+          "argument_description": "Filters for issues with any of the provided Rev organizations",
+          "argument_type": "array of strings",
+          "example": [["REV-123"], ["REV-468", "REV-979"]]
+        },
+        {
+          "argument_name": "limit",
+          "argument_description": "The maximum number of works to return. The default is 50",
+          "argument_type": "integer(int32)",
+          "example": [40, 25, 2, 1, 50]
+        },
+        {
+          "argument_name": "owned_by",
+          "argument_description": "Filters for work owned by any of these users",
+          "argument_type": "array of strings",
+          "example": [["DEVU-123"], ["CAPL-264", "HGH-190"]]
+        },
+        {
+          "argument_name": "stage.name",
+          "argument_description": "Filters for records in the provided stage(s) by name",
+          "argument_type": "array of strings",
+          "example": [["triage"], ["design", "triage"]]
+        },
+        {
+          "argument_name": "ticket.needs_response",
+          "argument_description": "Filters for tickets that need a response",
+          "argument_type": "boolean",
+          "example": ["True", "False"]
+        },
+        {
+          "argument_name": "ticket.rev_org",
+          "argument_description": "Filters for tickets associated with any of the provided Rev organizations",
+          "argument_type": "array of strings",
+          "example": [["REV-123"], ["REV-238", "REV-119"]]
+        },
+        {
+          "argument_name": "ticket.severity",
+          "argument_description": "Filters for tickets with any of the provided severities. Allowed values: blocker, high, low, medium",
+          "argument_type": "array of strings",
+          "allowed_values": ["blocker", "high", "low", "medium"],
+          "example": [
+            ["blocker"],
+            ["blocker", "high"],
+            ["blocker", "high", "low"]
+          ]
+        },
+        {
+          "argument_name": "ticket.source_channel",
+          "argument_description": "Filters for tickets with any of the provided source channels",
+          "argument_type": "array of strings",
+          "example": [["slack"], ["github"], ["slack", "scrum"]]
+        },
+        {
+          "argument_name": "type",
+          "argument_description": "Filters for work of the provided types. Allowed values: issue, ticket, task",
+          "allowed_values": ["issue", "ticket", "task"],
+          "argument_type": "array of strings",
+          "example": [["issue"], ["ticket"], ["task"]]
+        }
+      ]
+    },
+    {
+      "tool_description": "Summarizes a list of objects. The logic of how to summarize a particular object type is an internal implementation detail.",
+      "tool_name": "summarize_objects",
+      "return_type": "array of objects",
+      "argument_list": [
+        {
+          "argument_name": "objects",
+          "argument_description": "List of objects to summarize",
+          "argument_type": "array of objects",
+          "example": [["issue1"], ["task1", "issue3"]]
+        }
+      ]
+    },
+    {
+      "tool_description": "Returns a list of objects sorted by priority.",
+      "tool_name": "prioritize_objects",
+      "return_type": "array of objects",
+      "argument_list": [
+        {
+          "argument_name": "objects",
+          "argument_description": "A list of objects to be prioritized",
+          "argument_type": "array of objects",
+          "example": [["issue4"], ["task2", "issue3"], ["ticket9"]]
+        }
+      ]
+    },
+    {
+      "tool_description": "Adds the given work items to the sprint",
+      "tool_name": "add_work_items_to_sprint",
+      "return_type": "none",
+      "argument_list": [
+        {
+          "argument_name": "work_ids",
+          "argument_description": "A list of work item IDs to be added to the sprint.",
+          "argument_type": "array of strings",
+          "example": [["deve/0:issue/6"], ["devdon:core:dvrv-us-1:task/1"]]
+        },
+        {
+          "argument_name": "sprint_id",
+          "argument_description": "The ID of the sprint to which the work items should be added.",
+          "argument_type": "str",
+          "example": ["sprint_4", "sprint_1"]
+        }
+      ]
+    },
+    {
+      "tool_description": "Given a search string, returns the ID of a matching object in the system of record. If multiple matches are found, it returns the one where the confidence is highest.",
+      "tool_name": "search_object_by_name",
+      "return_type": "string",
+      "argument_list": [
+        {
+          "argument_name": "query",
+          "argument_description": "The search string, for example, customer's name, part name, user name.",
+          "argument_type": "string",
+          "example": ["DEV-123", "REV-432"]
+        }
+      ]
+    },
+    {
+      "tool_description": "Returns the ID of the current sprint.",
+      "tool_name": "get_sprint_id",
+      "return_type": "string",
+      "argument_list": []
+    },
+    {
+      "tool_description": "Given a text, extracts actionable insights, and creates tasks for them, which are kind of a work item.",
+      "tool_name": "create_actionable_tasks_from_text",
+      "return_type": "array of strings",
+      "argument_list": [
+        {
+          "argument_name": "text",
+          "argument_description": "The text from which the actionable insights need to be created.",
+          "argument_type": "string",
+          "example": [
+            "Transcript from slack channels",
+            "Transcripts from a meeting",
+            "workplace report"
+          ]
+        }
+      ]
+    },
+    {
+      "tool_description": "Returns the ID of the current user.",
+      "tool_name": "who_am_i",
+      "return_type": "string",
+      "argument_list": []
+    },
+    {
+      "tool_description": "Returns a list of work items that are similar to the given work item",
+      "tool_name": "get_similar_work_items",
+      "return_type": "array of objects",
+      "argument_list": [
+        {
+          "argument_name": "work_id",
+          "argument_description": "The ID of the work item for which you want to find similar items",
+          "argument_type": "string",
+          "example": ["der/0:issue/2", "ton:core:dvrv-us-3:sprint/10"]
+        }
+      ]
+    },
+    {
+      "tool_description": "Given the outputs from previous tools, process relevant outputs, combining them using mathematical operations, iterations, conditional logic etc and returns output matching the request",
+      "tool_name": "lambda",
+      "return_type": "any",
+      "argument_list": [
+        {
+          "argument_name": "expression",
+          "argument_description": "Operation to be performed",
+          "argument_type": "lambda statements",
+          "example": "['lambda $$PREV[3], $$PREV[5] : $$PREV[3] + $$PREV[5]','lambda $$PREV[0]: len($$PREV[0])']"
+        }
+      ]
+    }
+  ]
+}
