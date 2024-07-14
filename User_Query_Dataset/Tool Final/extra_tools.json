@@ -1,0 +1,44 @@
+{
+  "tools": [
+    {
+      "tool_name": "timeline_entries_list",
+      "tool_description": "Lists the timeline entries for an object",
+      "title": "timeline_entries_list",
+      "return_type": "array of objects",
+      "argument_list": [
+        {
+          "argument_name": "object",
+          "argument_description": "The ID of the object to list timeline entries for",
+          "argument_type": "string",
+          "example": ["PROD-12345"]
+        },
+        {
+          "argument_name": "limit",
+          "argument_description": "The maximum number of works to return. The default is 50",
+          "argument_type": "integer(int32)",
+          "example": [40, 25, 2, 1, 50]
+        }
+      ]
+    },
+    {
+        "tool_name": "tags_list",
+        "tool_description": "Lists the available tags",
+        "title": "tags_list",
+        "return_type": "array of objects",
+        "argument_list": [
+          {
+            "argument_name": "limit",
+            "argument_description": "The maximum number of works to return. The default is 50",
+            "argument_type": "integer(int32)",
+            "example": [40, 25, 2, 1, 50]
+          },
+          {
+            "argument_name": "name",
+            "argument_description": "Filters for tags with the provided names",
+            "argument_type": "array of strings",
+            "example": [["tag1", "tag2"], ["tag3"]]
+          }
+        ]
+    }
+  ]
+}
