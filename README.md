@@ -2,7 +2,7 @@
 # AI AGENT 007-TOOLING UP FOR SUCCESS - Inter IIT Tech Meet 12.0
 ## IIT Indore (Team 22) 
 
-**Won Silver (Absolute Rank 2) :3rd_place_medal:**
+**Won Silver (Absolute Rank 2) 🥈**
 
 ### Contributors
 
@@ -21,4 +21,4 @@ This repository contains the final submission for the Devrev Challenge. The chal
 
 ## Report
 
-A detailed description for these tasks, their approcahes and pros-cons of the  different techniques used is provided in [this]() report.
+A detailed description for these tasks, their approcahes and pros-cons of the  different techniques used is provided in [this](https://drive.google.com/file/d/1M27rhrcJ-9G5NKtMlBHXeulVLmCMCqF1/view?usp=sharing) report.
