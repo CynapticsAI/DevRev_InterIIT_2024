@@ -1,5 +1,5 @@
 # Devrev - High Prep Problem Statement
-# AI AGENT 007-TOOLING UP FOR SUCCESS - Inter IIT Tech Meet 12.0
+# AI AGENT 007 - Inter IIT Tech Meet 12.0
 ## IIT Indore (Team 22) 
 
 **Won Silver (Absolute Rank 2) 🥈**
